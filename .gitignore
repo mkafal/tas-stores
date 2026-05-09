@@ -7,3 +7,4 @@ npm-debug.log*
 .env*.local
 .vercel
 .DS_Store
+public/video/Cacao Clip.mp4

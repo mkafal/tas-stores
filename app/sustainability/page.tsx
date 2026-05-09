@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import dynamic from "next/dynamic";
-
-const WorldGlobe = dynamic(() => import("@/components/WorldGlobe"), { ssr: false });
+import GlobeSection from "@/components/GlobeSection";
 
 export const metadata: Metadata = {
   title: "Sustainability & Impact",
@@ -209,9 +207,7 @@ export default function SustainabilityPage() {
             </div>
 
             {/* Globe side */}
-            <div className="relative h-[420px] sm:h-[500px]">
-              <WorldGlobe />
-            </div>
+            <GlobeSection />
           </div>
         </div>
       </section>

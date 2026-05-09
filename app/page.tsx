@@ -1,9 +1,11 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import HeroVideo from "@/components/HeroVideo";
 
 // 3D / interactive components — loaded client-side only
-const HeroParticles   = dynamic(() => import("@/components/HeroParticles"),   { ssr: false });
 const AnimatedStats   = dynamic(() => import("@/components/AnimatedStats"),   { ssr: false });
 const SupplyChainFlow = dynamic(() => import("@/components/SupplyChainFlow"), { ssr: false });
 
@@ -33,62 +35,8 @@ const markets = ["Netherlands", "United Kingdom", "Belgium", "France", "United S
 export default function HomePage() {
   return (
     <>
-      {/* ── HERO ───────────────────────────────────────────────── */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background image */}
-        <Image
-          src="https://static.wixstatic.com/media/879aa2_d2611ee263fd4b51b4f9fdd907d8111b~mv2_d_6000_4000_s_4_2.jpg"
-          alt="Sierra Leone cocoa farm"
-          fill
-          className="object-cover"
-          priority
-        />
-
-        {/* Gradient overlay */}
-        <div className="absolute inset-0 z-[1] bg-gradient-to-r from-brown-950/92 via-brown-900/72 to-brown-950/45" />
-
-        {/* 3D Particles — sits above overlay, below content */}
-        <HeroParticles />
-
-        {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
-          <div className="max-w-2xl">
-            <span className="inline-block bg-gold-500/20 border border-gold-500/40 text-gold-400 text-xs font-semibold tracking-widest uppercase px-4 py-2 rounded-full mb-6">
-              Sierra Leone · Est. 2000
-            </span>
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-cream-100 leading-tight mb-6">
-              Premium Certified<br />
-              <span className="text-gold-400">Cocoa & Coffee</span><br />
-              from West Africa
-            </h1>
-            <p className="text-cream-200/90 text-lg leading-relaxed mb-8 max-w-xl">
-              TAS Stores connects 10,000+ certified Sierra Leone farmers to global markets.
-              EU Organic, USDA Organic &amp; Fairtrade certified. Full farm-to-port traceability.
-              Supplying Europe and North America since 2000.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <Link
-                href="/contact"
-                className="bg-gold-500 hover:bg-gold-400 text-brown-900 px-8 py-3.5 rounded-md font-semibold transition-colors text-sm"
-              >
-                Request a Quote
-              </Link>
-              <Link
-                href="/products"
-                className="border border-cream-200/40 hover:border-cream-200/80 text-cream-100 px-8 py-3.5 rounded-md font-semibold transition-colors text-sm backdrop-blur-sm"
-              >
-                View Product Specs
-              </Link>
-            </div>
-          </div>
-        </div>
-
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-cream-200/50 z-10">
-          <span className="text-xs uppercase tracking-widest">Scroll</span>
-          <div className="w-px h-10 bg-gradient-to-b from-cream-200/50 to-transparent" />
-        </div>
-      </section>
+      {/* ── VIDEO HERO ─────────────────────────────────────────── */}
+      <HeroVideo />
 
       {/* ── ANIMATED STATS ─────────────────────────────────────── */}
       <AnimatedStats />
